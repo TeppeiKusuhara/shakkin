@@ -21,7 +21,7 @@ class ItemFilterView(LoginRequiredMixin, FilterView):
             request.session["query"] = request.GET
         else:
             request.session["query"] = request.GET
-            if "query" in request.sesion.keys():
+            if "query" in request.session.keys():
                 for key in request.session["query"].keys():
                     request.GET[key] = request.session["query"][key]
         return super().get(request, **kwargs)
