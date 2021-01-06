@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class SampleAppConfig(AppConfig):
     name = 'app'
-    verbose_name = "アプリ"
+    verbose_name = "借金アプリ"

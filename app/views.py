@@ -20,7 +20,7 @@ class ItemFilterView(LoginRequiredMixin, FilterView):
         if request.GET:
             request.session["query"] = request.GET
         else:
-            request.session["query"] = request.GET
+            request.GET = request.GET.copy()
             if "query" in request.session.keys():
                 for key in request.session["query"].keys():
                     request.GET[key] = request.session["query"][key]
@@ -39,7 +39,7 @@ class ItemCreateView(LoginRequiredMixin, CreateView):
 
 class ItemUpdateView(LoginRequiredMixin, UpdateView):
     model = Item
-    from_class = ItemForm
+    form_class = ItemForm
     success_url = reverse_lazy("index")
 
 
